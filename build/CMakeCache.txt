@@ -255,6 +255,8 @@ CMAKE_RANLIB:FILEPATH=C:/ncs/toolchains/ce3b5ff664/opt/zephyr-sdk/arm-zephyr-eab
 //Path to a program.
 CMAKE_READELF:FILEPATH=C:/ncs/toolchains/ce3b5ff664/opt/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-readelf.exe
 
+CMAKE_REQUIRED_FLAGS:STRING=-c
+
 //Flags used by the linker during the creation of shared libraries
 // during all build types.
 CMAKE_SHARED_LINKER_FLAGS:STRING=
@@ -305,6 +307,8 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //Path to a program.
 CMAKE_STRIP:FILEPATH=C:/ncs/toolchains/ce3b5ff664/opt/zephyr-sdk/arm-zephyr-eabi/bin/arm-zephyr-eabi-strip.exe
 
+CMAKE_SYSTEM_NAME:STRING=Generic
+
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual
@@ -332,6 +336,8 @@ GPERF:FILEPATH=C:/ncs/toolchains/ce3b5ff664/opt/bin/gperf.exe
 
 //Path to a program.
 IMGTOOL:FILEPATH=C:/ncs/toolchains/ce3b5ff664/opt/bin/Scripts/imgtool.exe
+
+MACHINE:STRING=arm
 
 //No help, variable specified on the command line.
 NCS_TOOLCHAIN_VERSION:UNINITIALIZED=NONE
@@ -378,6 +384,48 @@ TOOLCHAIN_ROOT:STRING=C:/ncs/v2.6.1/zephyr
 //No help, variable specified on the command line.
 WEST_PYTHON:UNINITIALIZED=C:/ncs/toolchains/ce3b5ff664/opt/bin/python.exe
 
+//Build with sample applications
+WITH_APPS:BOOL=OFF
+
+//Build with all cache operations enabled
+WITH_DCACHE:BOOL=OFF
+
+//Build with buffers cache operations enabled
+WITH_DCACHE_BUFFERS:BOOL=OFF
+
+//Build with resource table cache operations enabled
+WITH_DCACHE_RSC_TABLE:BOOL=OFF
+
+//Build with vrings cache operations enabled
+WITH_DCACHE_VRINGS:BOOL=OFF
+
+//Build with default logger
+WITH_DEFAULT_LOGGER:BOOL=OFF
+
+//Build with documentation
+WITH_DOC:BOOL=OFF
+
+//Check Libmetal library can be found
+WITH_LIBMETAL_FIND:BOOL=OFF
+
+//Build with proxy(access device controlled by other processor)
+WITH_PROXY:BOOL=OFF
+
+//Build with proxy sample applications
+WITH_PROXY_APPS:BOOL=OFF
+
+//Build with a static library
+WITH_STATIC_LIB:BOOL=ON
+
+//Build with virtio driver (front end)  enabled
+WITH_VIRTIO_MASTER:BOOL=OFF
+
+//Build with virtio mmio driver support enabled
+WITH_VIRTIO_MMIO_DRV:BOOL=OFF
+
+//Build with virtio device (back end)  enabled
+WITH_VIRTIO_SLAVE:BOOL=OFF
+
 //Zephyr base
 ZEPHYR_BASE:PATH=C:/ncs/v2.6.1/zephyr
 
@@ -385,7 +433,7 @@ ZEPHYR_BASE:PATH=C:/ncs/v2.6.1/zephyr
 ZEPHYR_GIT_INDEX:PATH=C:/ncs/v2.6.1/zephyr/.git/index
 
 //Path to merged image in Intel Hex format
-ZEPHYR_RUNNER_CONFIG_KERNEL_HEX:STRING=
+ZEPHYR_RUNNER_CONFIG_KERNEL_HEX:STRING=C:/untitled/build/zephyr/merged_domains.hex
 
 //Value Computed by CMake
 Zephyr-Kernel_BINARY_DIR:STATIC=C:/untitled/build
@@ -408,6 +456,18 @@ ZephyrBuildConfiguration_DIR:PATH=C:/ncs/v2.6.1/nrf/share/zephyrbuild-package/cm
 //The directory containing a CMake configuration file for Zephyr.
 Zephyr_DIR:PATH=C:/ncs/v2.6.1/zephyr/share/zephyr-package/cmake
 
+//Extra config fragments for hci_ipc child image
+hci_ipc_OVERLAY_CONFIG:STRING=;C:/ncs/v2.6.1/nrf/subsys/partition_manager/partition_manager_enabled.conf
+
+//Value Computed by CMake
+metal_BINARY_DIR:STATIC=C:/untitled/build/modules/libmetal/libmetal
+
+//Value Computed by CMake
+metal_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+metal_SOURCE_DIR:STATIC=C:/ncs/v2.6.1/modules/hal/libmetal/libmetal
+
 //Value Computed by CMake
 nrf_connect_sdk_intermediate_BINARY_DIR:STATIC=C:/untitled/build
 
@@ -416,6 +476,15 @@ nrf_connect_sdk_intermediate_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
 nrf_connect_sdk_intermediate_SOURCE_DIR:STATIC=C:/untitled
+
+//Value Computed by CMake
+open_amp_BINARY_DIR:STATIC=C:/untitled/build/modules/open-amp/open-amp
+
+//Value Computed by CMake
+open_amp_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+open_amp_SOURCE_DIR:STATIC=C:/ncs/v2.6.1/modules/lib/open-amp/open-amp
 
 
 ########################
@@ -535,7 +604,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=151
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=191
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
@@ -578,12 +647,17 @@ CMAKE_STRIP-ADVANCED:INTERNAL=1
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //The build type
 CONF_FILE_BUILD_TYPE:INTERNAL=
+CPUNET_PM_DOMAIN_DYNAMIC_PARTITION:INTERNAL=hci_ipc
 //Details about finding Dtc
 FIND_PACKAGE_MESSAGE_DETAILS_Dtc:INTERNAL=[C:/ncs/toolchains/ce3b5ff664/opt/bin/dtc.exe][v1.4.7(1.4.6)]
 //Details about finding GnuLd
 FIND_PACKAGE_MESSAGE_DETAILS_GnuLd:INTERNAL=[c:/ncs/toolchains/ce3b5ff664/opt/zephyr-sdk/arm-zephyr-eabi/bin/../lib/gcc/arm-zephyr-eabi/12.2.0/../../../../arm-zephyr-eabi/bin/ld.bfd.exe][v2.38()]
 //Details about finding Python3
 FIND_PACKAGE_MESSAGE_DETAILS_Python3:INTERNAL=[C:/ncs/toolchains/ce3b5ff664/opt/bin/python.exe][cfound components: Interpreter ][v3.9.13(3.8)]
+//Have include fcntl.h
+HAVE_FCNTL_H:INTERNAL=1
+//Have include stdatomic.h
+HAVE_STDATOMIC_H:INTERNAL=1
 SOC_LINKER_SCRIPT:INTERNAL=C:/ncs/v2.6.1/zephyr/include/zephyr/arch/arm/cortex_m/scripts/linker.ld
 //West
 WEST:INTERNAL=C:/ncs/toolchains/ce3b5ff664/opt/bin/python.exe;-m;west

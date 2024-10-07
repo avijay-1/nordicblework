@@ -40,6 +40,7 @@ case K_OBJ_RTIO_IODEV: ret = "rtio_iodev"; break;
 case K_OBJ_SENSOR_DECODER_API: ret = "sensor_decoder_api"; break;
 #endif
 /* Driver subsystems */
+case K_OBJ_DRIVER_FLASH: ret = "flash driver"; break;
 case K_OBJ_DRIVER_GPIO: ret = "gpio driver"; break;
 case K_OBJ_DRIVER_LED: ret = "led driver"; break;
 case K_OBJ_DRIVER_MBOX: ret = "mbox driver"; break;
@@ -64,7 +65,6 @@ case K_OBJ_DRIVER_EMUL_SENSOR_BACKEND_API: ret = "emul_sensor_backend_api driver
 case K_OBJ_DRIVER_ENTROPY: ret = "entropy driver"; break;
 case K_OBJ_DRIVER_ESPI: ret = "espi driver"; break;
 case K_OBJ_DRIVER_ESPI_SAF: ret = "espi_saf driver"; break;
-case K_OBJ_DRIVER_FLASH: ret = "flash driver"; break;
 case K_OBJ_DRIVER_FPGA: ret = "fpga driver"; break;
 case K_OBJ_DRIVER_FUEL_GAUGE: ret = "fuel_gauge driver"; break;
 case K_OBJ_DRIVER_GNSS: ret = "gnss driver"; break;
