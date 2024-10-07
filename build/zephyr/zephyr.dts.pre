@@ -1317,5 +1317,55 @@ zephyr_udc0: &usbd {
         };
     };
 };
+
+&pinctrl {
+    pwm0_custom: pwm0_custom {
+        group1 {
+            psels = <((((((0) * 32U) + (28)) & 0x7FU) << 0U) | ((22U & 0xFFFFU) << 16U))>;
+            nordic,invert;
+        };
+    };
+
+    pwm0_csleep: pwm0_csleep {
+        group1 {
+            psels = <((((((0) * 32U) + (28)) & 0x7FU) << 0U) | ((22U & 0xFFFFU) << 16U))>;
+            low-power-enable;
+        };
+    };
+};
+
+
+/ {
+    servo: servo {
+        compatible = "pwm-servo";
+        pwms = <&pwm1 0 (((20) * 1000UL) * 1000UL) (0 << 0)>;
+        min-pulse = <((1000) * 1000UL)>;
+        max-pulse = <((2000) * 1000UL)>;
+    };
+};
+
+
+&pwm1 {
+    status = "okay";
+    pinctrl-0 = <&pwm1_custom_motor>;
+    pinctrl-1 = <&pwm1_csleep_motor>;
+    pinctrl-names = "default", "sleep";
+};
+
+&pinctrl {
+    pwm1_custom_motor: pwm1_custom_motor {
+        group1 {
+            psels = <((((((0) * 32U) + (5)) & 0x7FU) << 0U) | ((22U & 0xFFFFU) << 16U))>;
+            nordic,invert;
+        };
+    };
+
+    pwm1_csleep_motor: pwm1_csleep_motor {
+        group1 {
+            psels = <((((((0) * 32U) + (5)) & 0x7FU) << 0U) | ((22U & 0xFFFFU) << 16U))>;
+            low-power-enable;
+        };
+    };
+};
 # 0 "<command-line>" 2
 # 1 "C:/ncs/v2.6.1/zephyr/misc/empty_file.c"

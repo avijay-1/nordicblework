@@ -255,7 +255,7 @@
 				interrupts = < 0xe 0x1 >;
 				status = "okay";
 				#io-channel-cells = < 0x1 >;
-				phandle = < 0x16 >;
+				phandle = < 0x18 >;
 			};
 			timer0: timer@f000 {
 				compatible = "nordic,nrf-timer";
@@ -274,7 +274,7 @@
 				max-bit-width = < 0x20 >;
 				interrupts = < 0x10 0x1 >;
 				prescaler = < 0x0 >;
-				phandle = < 0x10 >;
+				phandle = < 0x12 >;
 			};
 			timer2: timer@11000 {
 				compatible = "nordic,nrf-timer";
@@ -372,14 +372,18 @@
 				pinctrl-0 = < &pwm0_custom >;
 				pinctrl-1 = < &pwm0_csleep >;
 				pinctrl-names = "default", "sleep";
-				phandle = < 0x14 >;
+				phandle = < 0x16 >;
 			};
 			pwm1: pwm@22000 {
 				compatible = "nordic,nrf-pwm";
 				reg = < 0x22000 0x1000 >;
 				interrupts = < 0x22 0x1 >;
-				status = "disabled";
+				status = "okay";
 				#pwm-cells = < 0x3 >;
+				pinctrl-0 = < &pwm1_custom_motor >;
+				pinctrl-1 = < &pwm1_csleep_motor >;
+				pinctrl-names = "default", "sleep";
+				phandle = < 0x19 >;
 			};
 			pwm2: pwm@23000 {
 				compatible = "nordic,nrf-pwm";
@@ -417,7 +421,7 @@
 				interrupts = < 0x2a 0x1 >;
 				#mbox-cells = < 0x1 >;
 				status = "okay";
-				phandle = < 0x12 >;
+				phandle = < 0x14 >;
 			};
 			qspi: qspi@2b000 {
 				compatible = "nordic,nrf-qspi";
@@ -545,7 +549,7 @@
 				status = "okay";
 				port = < 0x0 >;
 				gpiote-instance = < &gpiote >;
-				phandle = < 0x13 >;
+				phandle = < 0x15 >;
 			};
 			gpio1: gpio@842800 {
 				compatible = "nordic,nrf-gpio";
@@ -556,7 +560,7 @@
 				status = "okay";
 				port = < 0x1 >;
 				gpiote-instance = < &gpiote >;
-				phandle = < 0x15 >;
+				phandle = < 0x17 >;
 			};
 			ieee802154: ieee802154 {
 				compatible = "nordic,nrf-ieee802154";
@@ -569,7 +573,7 @@
 			interrupts = < 0x2f 0x5 >;
 			status = "okay";
 			instance = < 0x1 >;
-			phandle = < 0xf >;
+			phandle = < 0x11 >;
 		};
 	};
 	pinctrl: pin-controller {
@@ -616,14 +620,14 @@
 			};
 		};
 		qspi_default: qspi_default {
-			phandle = < 0xd >;
+			phandle = < 0xf >;
 			group1 {
 				psels = < 0x1d0011 >, < 0x1f000d >, < 0x20000e >, < 0x21000f >, < 0x220010 >, < 0x1e0012 >;
 				nordic,drive-mode = < 0x3 >;
 			};
 		};
 		qspi_sleep: qspi_sleep {
-			phandle = < 0xe >;
+			phandle = < 0x10 >;
 			group1 {
 				psels = < 0x1d0011 >, < 0x1f000d >, < 0x20000e >, < 0x21000f >, < 0x220010 >;
 				low-power-enable;
@@ -667,12 +671,26 @@
 		pwm0_custom: pwm0_custom {
 			phandle = < 0xb >;
 			group1 {
-				psels = < 0x160005 >;
+				psels = < 0x16001c >;
 				nordic,invert;
 			};
 		};
 		pwm0_csleep: pwm0_csleep {
 			phandle = < 0xc >;
+			group1 {
+				psels = < 0x16001c >;
+				low-power-enable;
+			};
+		};
+		pwm1_custom_motor: pwm1_custom_motor {
+			phandle = < 0xd >;
+			group1 {
+				psels = < 0x160005 >;
+				nordic,invert;
+			};
+		};
+		pwm1_csleep_motor: pwm1_csleep_motor {
+			phandle = < 0xe >;
 			group1 {
 				psels = < 0x160005 >;
 				low-power-enable;
@@ -803,7 +821,13 @@
 		};
 		sram0_shared: memory@20070000 {
 			reg = < 0x20070000 0x10000 >;
-			phandle = < 0x11 >;
+			phandle = < 0x13 >;
 		};
+	};
+	servo: servo {
+		compatible = "pwm-servo";
+		pwms = < &pwm1 0x0 0x1312d00 0x0 >;
+		min-pulse = < 0xf4240 >;
+		max-pulse = < 0x1e8480 >;
 	};
 };
