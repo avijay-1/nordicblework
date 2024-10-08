@@ -39,31 +39,31 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/lib/crc/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/lib/crc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/lib/libc/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/lib/libc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/lib/posix/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/lib/posix/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/lib/hash/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/lib/hash/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/lib/os/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/lib/os/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/lib/open-amp/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/lib/open-amp/cmake_install.cmake")
 endif()
 

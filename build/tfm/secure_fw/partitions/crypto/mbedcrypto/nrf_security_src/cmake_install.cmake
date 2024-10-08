@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/dualmotorcontrol/build/tfm/api_ns")
+  set(CMAKE_INSTALL_PREFIX "C:/untitled/build/tfm/api_ns")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,16 +39,16 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/tfm/secure_fw/partitions/crypto/mbedcrypto/nrf_security_src/core/cmake_install.cmake")
+  include("C:/untitled/build/tfm/secure_fw/partitions/crypto/mbedcrypto/nrf_security_src/core/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/tfm/secure_fw/partitions/crypto/mbedcrypto/nrf_security_src/drivers/cmake_install.cmake")
+  include("C:/untitled/build/tfm/secure_fw/partitions/crypto/mbedcrypto/nrf_security_src/drivers/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/tfm/secure_fw/partitions/crypto/mbedcrypto/nrf_security_src/legacy/cmake_install.cmake")
+  include("C:/untitled/build/tfm/secure_fw/partitions/crypto/mbedcrypto/nrf_security_src/legacy/cmake_install.cmake")
 endif()
 

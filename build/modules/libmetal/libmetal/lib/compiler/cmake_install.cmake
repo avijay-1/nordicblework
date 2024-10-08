@@ -39,9 +39,9 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/dualmotorcontrol/build/modules/libmetal/libmetal/lib/compiler/armcc/cmake_install.cmake")
-  include("C:/dualmotorcontrol/build/modules/libmetal/libmetal/lib/compiler/gcc/cmake_install.cmake")
-  include("C:/dualmotorcontrol/build/modules/libmetal/libmetal/lib/compiler/iar/cmake_install.cmake")
+  include("C:/untitled/build/modules/libmetal/libmetal/lib/compiler/armcc/cmake_install.cmake")
+  include("C:/untitled/build/modules/libmetal/libmetal/lib/compiler/gcc/cmake_install.cmake")
+  include("C:/untitled/build/modules/libmetal/libmetal/lib/compiler/iar/cmake_install.cmake")
 
 endif()
 

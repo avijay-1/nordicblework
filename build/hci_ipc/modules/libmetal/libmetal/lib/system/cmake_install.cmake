@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/modules/libmetal/libmetal/lib/system/zephyr/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/modules/libmetal/libmetal/lib/system/zephyr/cmake_install.cmake")
 
 endif()
 

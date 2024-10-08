@@ -42,14 +42,14 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/dualmotorcontrol/build/modules/open-amp/open-amp/include/generated/openamp")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/untitled/build/modules/open-amp/open-amp/include/generated/openamp")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/dualmotorcontrol/build/modules/open-amp/open-amp/lib/virtio/cmake_install.cmake")
-  include("C:/dualmotorcontrol/build/modules/open-amp/open-amp/lib/rpmsg/cmake_install.cmake")
-  include("C:/dualmotorcontrol/build/modules/open-amp/open-amp/lib/remoteproc/cmake_install.cmake")
+  include("C:/untitled/build/modules/open-amp/open-amp/lib/virtio/cmake_install.cmake")
+  include("C:/untitled/build/modules/open-amp/open-amp/lib/rpmsg/cmake_install.cmake")
+  include("C:/untitled/build/modules/open-amp/open-amp/lib/remoteproc/cmake_install.cmake")
 
 endif()
 

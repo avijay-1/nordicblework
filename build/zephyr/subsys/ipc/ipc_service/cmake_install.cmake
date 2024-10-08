@@ -39,11 +39,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/zephyr/subsys/ipc/ipc_service/backends/cmake_install.cmake")
+  include("C:/untitled/build/zephyr/subsys/ipc/ipc_service/backends/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/zephyr/subsys/ipc/ipc_service/lib/cmake_install.cmake")
+  include("C:/untitled/build/zephyr/subsys/ipc/ipc_service/lib/cmake_install.cmake")
 endif()
 

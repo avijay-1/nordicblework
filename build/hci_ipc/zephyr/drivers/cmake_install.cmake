@@ -39,71 +39,71 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/disk/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/disk/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/interrupt_controller/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/interrupt_controller/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/misc/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/misc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/pcie/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/pcie/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/usb/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/usb/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/usb_c/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/usb_c/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/clock_control/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/clock_control/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/console/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/console/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/entropy/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/entropy/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/gpio/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/gpio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/mbox/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/mbox/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/pinctrl/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/pinctrl/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/serial/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/serial/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/hci_ipc/zephyr/drivers/timer/cmake_install.cmake")
+  include("C:/untitled/build/hci_ipc/zephyr/drivers/timer/cmake_install.cmake")
 endif()
 

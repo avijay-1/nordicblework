@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/dualmotorcontrol/build/tfm/api_ns")
+  set(CMAKE_INSTALL_PREFIX "C:/untitled/build/tfm/api_ns")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,19 +39,19 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("C:/dualmotorcontrol/build/tfm/platform/target/nrf5340/nrf_common/cmake_install.cmake")
+  include("C:/untitled/build/tfm/platform/target/nrf5340/nrf_common/cmake_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "C:/dualmotorcontrol/build/tfm/api_ns/platform/common/nrf5340/nrfx_config_nrf5340_application.h;C:/dualmotorcontrol/build/tfm/api_ns/platform/common/nrf5340/CMakeLists.txt;C:/dualmotorcontrol/build/tfm/api_ns/platform/common/nrf5340/config.cmake;C:/dualmotorcontrol/build/tfm/api_ns/platform/common/nrf5340/cpuarch.cmake")
+   "C:/untitled/build/tfm/api_ns/platform/common/nrf5340/nrfx_config_nrf5340_application.h;C:/untitled/build/tfm/api_ns/platform/common/nrf5340/CMakeLists.txt;C:/untitled/build/tfm/api_ns/platform/common/nrf5340/config.cmake;C:/untitled/build/tfm/api_ns/platform/common/nrf5340/cpuarch.cmake")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "C:/dualmotorcontrol/build/tfm/api_ns/platform/common/nrf5340" TYPE FILE MESSAGE_NEVER FILES
+  file(INSTALL DESTINATION "C:/untitled/build/tfm/api_ns/platform/common/nrf5340" TYPE FILE MESSAGE_NEVER FILES
     "C:/ncs/v2.6.1/modules/tee/tf-m/trusted-firmware-m/platform/ext/target/nordic_nrf/common/nrf5340/nrfx_config_nrf5340_application.h"
     "C:/ncs/v2.6.1/modules/tee/tf-m/trusted-firmware-m/platform/ext/target/nordic_nrf/common/nrf5340/ns/CMakeLists.txt"
     "C:/ncs/v2.6.1/modules/tee/tf-m/trusted-firmware-m/platform/ext/target/nordic_nrf/common/nrf5340/config.cmake"
@@ -61,14 +61,14 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "C:/dualmotorcontrol/build/tfm/api_ns/platform/common/nrf5340/partition;C:/dualmotorcontrol/build/tfm/api_ns/platform/common/nrf5340/tests")
+   "C:/untitled/build/tfm/api_ns/platform/common/nrf5340/partition;C:/untitled/build/tfm/api_ns/platform/common/nrf5340/tests")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-  file(INSTALL DESTINATION "C:/dualmotorcontrol/build/tfm/api_ns/platform/common/nrf5340" TYPE DIRECTORY MESSAGE_NEVER FILES
+  file(INSTALL DESTINATION "C:/untitled/build/tfm/api_ns/platform/common/nrf5340" TYPE DIRECTORY MESSAGE_NEVER FILES
     "C:/ncs/v2.6.1/modules/tee/tf-m/trusted-firmware-m/platform/ext/target/nordic_nrf/common/nrf5340/partition"
     "C:/ncs/v2.6.1/modules/tee/tf-m/trusted-firmware-m/platform/ext/target/nordic_nrf/common/nrf5340/tests"
     )

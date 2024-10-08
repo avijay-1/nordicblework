@@ -6,7 +6,7 @@
 # It is included in the main 'build.ninja'.
 
 # =============================================================================
-# Project: dualmotorcontrol
+# Project: nrf_connect_sdk_intermediate
 # Configurations: 
 # =============================================================================
 # =============================================================================
@@ -884,7 +884,7 @@ rule C_STATIC_LIBRARY_LINKER__kernel_
 # Rule for re-running cmake.
 
 rule RERUN_CMAKE
-  command = C:\ncs\toolchains\ce3b5ff664\opt\bin\cmake.exe --regenerate-during-build -SC:\dualmotorcontrol -BC:\dualmotorcontrol\build
+  command = C:\ncs\toolchains\ce3b5ff664\opt\bin\cmake.exe --regenerate-during-build -SC:\untitled -BC:\untitled\build
   description = Re-running CMake...
   generator = 1
 

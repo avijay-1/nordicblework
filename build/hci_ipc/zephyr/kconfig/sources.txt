@@ -1,7 +1,3 @@
-C:\dualmotorcontrol\build\hci_ipc\Kconfig\Kconfig.dts
-C:\dualmotorcontrol\build\hci_ipc\Kconfig\Kconfig.modules
-C:\dualmotorcontrol\build\hci_ipc\Kconfig\Kconfig.shield
-C:\dualmotorcontrol\build\hci_ipc\Kconfig\Kconfig.shield.defconfig
 C:\ncs\toolchains\ce3b5ff664\opt\zephyr-sdk\cmake\zephyr\Kconfig
 C:\ncs\v2.6.1\modules\hal\cirrus-logic\Kconfig
 C:\ncs\v2.6.1\modules\lib\chre\platform\zephyr\Kconfig
@@ -2612,3 +2608,7 @@ C:\ncs\v2.6.1\zephyr\subsys\usb\device_next\class\Kconfig.template.instances_cou
 C:\ncs\v2.6.1\zephyr\subsys\usb\host\Kconfig
 C:\ncs\v2.6.1\zephyr\subsys\usb\usb_c\Kconfig
 C:\ncs\v2.6.1\zephyr\subsys\zbus\Kconfig
+C:\untitled\build\hci_ipc\Kconfig\Kconfig.dts
+C:\untitled\build\hci_ipc\Kconfig\Kconfig.modules
+C:\untitled\build\hci_ipc\Kconfig\Kconfig.shield
+C:\untitled\build\hci_ipc\Kconfig\Kconfig.shield.defconfig
