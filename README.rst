@@ -1,1 +1,2 @@
-This code allows for you to control LED3 and LED4 with the app, and true false control.
+This code sends pulses to .19 and .20, not meant to do that, and does not connect to Bluetooth
+
