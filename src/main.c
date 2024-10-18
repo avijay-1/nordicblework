@@ -9,12 +9,12 @@ LOG_MODULE_REGISTER(PWM_BLE_Control);
 
 /* Define the PWM device and channel */
 #define PWM_NODE DT_NODELABEL(pwm0)
-#define PWM_CHANNEL 0
-#define PWM_FLAGS 0
+#define PWM_CHANNEL 0 // Using channel 0 as configured in the overlay
+#define PWM_FLAGS PWM_POLARITY_INVERTED // Use inverted polarity for active-low LED
 
 static const struct device *pwm_dev;
 
-/* Simplified BLE Write Handler */
+/* BLE Write Handler */
 static ssize_t simple_write_handler(struct bt_conn *conn,
                                     const struct bt_gatt_attr *attr,
                                     const void *buf, uint16_t len,
@@ -26,7 +26,7 @@ static ssize_t simple_write_handler(struct bt_conn *conn,
         uint8_t received_value = *((const uint8_t *)buf);
         LOG_INF("Received value from BLE: %d", received_value);
 
-        uint32_t period = 1000U; // 1,000 us (1 ms) for a PWM frequency of 1 kHz
+        uint32_t period = 1000U; // 1,000 us (1 ms)
 
         /* Scale the received value (0-255) to the PWM pulse width */
         uint32_t pulse_width = (received_value * period) / 255;
@@ -86,7 +86,7 @@ int main(void)
 {
     int err;
 
-    LOG_INF("Starting basic BLE control");
+    LOG_INF("Starting PWM BLE Control on LED1 (P0.28)");
 
     /* Initialize PWM Device */
     pwm_dev = DEVICE_DT_GET(PWM_NODE);
