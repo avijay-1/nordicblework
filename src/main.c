@@ -18,7 +18,7 @@ static const struct device *pwm_dev;
 /* Function to set PWM for specific channel */
 static void set_pwm(uint8_t led_num, uint8_t value) {
     uint32_t period = 1000U; // 1,000 us (1 ms)
-    uint32_t pulse_width = (value * period) / 255;
+    uint32_t pulse_width = (value * period) / 100; // Convert percentage to pulse width
 
     int ret;
     if (led_num == 1) {
@@ -46,7 +46,11 @@ static ssize_t led1_write_handler(struct bt_conn *conn,
 {
     if (len == 1) {
         uint8_t received_value = *((const uint8_t *)buf);
-        LOG_INF("Received value for LED1: %d", received_value);
+        if (received_value > 100) {
+            LOG_WRN("Received value for LED1 out of range: %d", received_value);
+            return BT_GATT_ERR(BT_ATT_ERR_VALUE_NOT_ALLOWED);
+        }
+        LOG_INF("Received value for LED1: %d%%", received_value);
         set_pwm(1, received_value);
     } else {
         LOG_WRN("Received unexpected length for LED1: %d", len);
@@ -61,7 +65,11 @@ static ssize_t led2_write_handler(struct bt_conn *conn,
 {
     if (len == 1) {
         uint8_t received_value = *((const uint8_t *)buf);
-        LOG_INF("Received value for LED2: %d", received_value);
+        if (received_value > 100) {
+            LOG_WRN("Received value for LED2 out of range: %d", received_value);
+            return BT_GATT_ERR(BT_ATT_ERR_VALUE_NOT_ALLOWED);
+        }
+        LOG_INF("Received value for LED2: %d%%", received_value);
         set_pwm(2, received_value);
     } else {
         LOG_WRN("Received unexpected length for LED2: %d", len);
