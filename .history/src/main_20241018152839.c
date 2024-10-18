@@ -9,64 +9,54 @@ LOG_MODULE_REGISTER(PWM_BLE_Control);
 
 /* Define the PWM device and channels */
 #define PWM_NODE DT_NODELABEL(pwm0)
-#define PWM_CHANNEL_1 0 // Channel for LED1 (P0.28)
-#define PWM_CHANNEL_2 1 // Channel for LED2 (P0.29)
+#define PWM_CHANNEL_1 0 // Using channel 0 as configured in the overlay for LED1
+#define PWM_CHANNEL_2 1 // Using channel 1 for LED2
 #define PWM_FLAGS PWM_POLARITY_INVERTED // Use inverted polarity for active-low LED
 
 static const struct device *pwm_dev;
 
-/* Function to set PWM for specific channel */
-static void set_pwm(uint8_t led_num, uint8_t value) {
-    uint32_t period = 1000U; // 1,000 us (1 ms)
-    uint32_t pulse_width = (value * period) / 255;
-
-    int ret;
-    if (led_num == 1) {
-        ret = pwm_set(pwm_dev, PWM_CHANNEL_1, period, pulse_width, PWM_FLAGS);
-        if (ret) {
-            LOG_ERR("Error setting PWM for LED1 (P0.28): %d", ret);
-        } else {
-            LOG_INF("PWM updated for LED1 (P0.28): Pulse width set to %u (out of %u)", pulse_width, period);
-        }
-    } else if (led_num == 2) {
-        ret = pwm_set(pwm_dev, PWM_CHANNEL_2, period, pulse_width, PWM_FLAGS);
-        if (ret) {
-            LOG_ERR("Error setting PWM for LED2 (P0.29): %d", ret);
-        } else {
-            LOG_INF("PWM updated for LED2 (P0.29): Pulse width set to %u (out of %u)", pulse_width, period);
-        }
-    }
-}
-
-/* BLE Write Handlers */
-static ssize_t led1_write_handler(struct bt_conn *conn,
-                                  const struct bt_gatt_attr *attr,
-                                  const void *buf, uint16_t len,
-                                  uint16_t offset, uint8_t flags)
+/* BLE Write Handler */
+static ssize_t simple_write_handler(struct bt_conn *conn,
+                                    const struct bt_gatt_attr *attr,
+                                    const void *buf, uint16_t len,
+                                    uint16_t offset, uint8_t flags)
 {
-    if (len == 1) {
-        uint8_t received_value = *((const uint8_t *)buf);
-        LOG_INF("Received value for LED1: %d", received_value);
-        set_pwm(1, received_value);
-    } else {
-        LOG_WRN("Received unexpected length for LED1: %d", len);
-    }
-    return len;
-}
+    LOG_INF("simple_write_handler invoked");
 
-static ssize_t led2_write_handler(struct bt_conn *conn,
-                                  const struct bt_gatt_attr *attr,
-                                  const void *buf, uint16_t len,
-                                  uint16_t offset, uint8_t flags)
-{
-    if (len == 1) {
-        uint8_t received_value = *((const uint8_t *)buf);
-        LOG_INF("Received value for LED2: %d", received_value);
-        set_pwm(2, received_value);
+    if (len == 2) {
+        uint8_t led_num = *((const uint8_t *)buf);
+        uint8_t received_value = *((const uint8_t *)buf + 1);
+        LOG_INF("Received LED number: %d, value: %d", led_num, received_value);
+
+        uint32_t period = 1000U; // 1,000 us (1 ms)
+
+        /* Scale the received value (0-255) to the PWM pulse width */
+        uint32_t pulse_width = (received_value * period) / 255;
+
+        int ret;
+        if (led_num == 1) {
+            ret = pwm_set(pwm_dev, PWM_CHANNEL_1, period, pulse_width, PWM_FLAGS);
+            if (ret) {
+                LOG_ERR("Error setting PWM for LED1: %d", ret);
+            } else {
+                LOG_INF("PWM updated for LED1: Pulse width set to %u (out of %u)", pulse_width, period);
+            }
+        } else if (led_num == 2) {
+            ret = pwm_set(pwm_dev, PWM_CHANNEL_2, period, pulse_width, PWM_FLAGS);
+            if (ret) {
+                LOG_ERR("Error setting PWM for LED2: %d", ret);
+            } else {
+                LOG_INF("PWM updated for LED2: Pulse width set to %u (out of %u)", pulse_width, period);
+            }
+        } else {
+            LOG_WRN("Invalid LED number: %d", led_num);
+        }
+
     } else {
-        LOG_WRN("Received unexpected length for LED2: %d", len);
+        LOG_WRN("Received unexpected length: %d", len);
     }
-    return len;
+
+    return len;  // Return the number of bytes consumed
 }
 
 /* GATT Service and Characteristic Definition */
@@ -77,12 +67,7 @@ BT_GATT_SERVICE_DEFINE(pwm_svc,
         BT_UUID_128_ENCODE(0x12345678, 0x1234, 0x5678, 0x1234, 0x56789abcde01)),
         BT_GATT_CHRC_WRITE | BT_GATT_CHRC_WRITE_WITHOUT_RESP,
         BT_GATT_PERM_WRITE,
-        NULL, led1_write_handler, NULL),
-    BT_GATT_CHARACTERISTIC(BT_UUID_DECLARE_128(
-        BT_UUID_128_ENCODE(0x12345678, 0x1234, 0x5678, 0x1234, 0x56789abcde02)),
-        BT_GATT_CHRC_WRITE | BT_GATT_CHRC_WRITE_WITHOUT_RESP,
-        BT_GATT_PERM_WRITE,
-        NULL, led2_write_handler, NULL),
+        NULL, simple_write_handler, NULL),
 );
 
 void on_connected(struct bt_conn *conn, uint8_t err)
@@ -115,7 +100,7 @@ int main(void)
 {
     int err;
 
-    LOG_INF("Starting PWM BLE Control on LED1 (P0.28) and LED2 (P0.29)");
+    LOG_INF("Starting PWM BLE Control on LED1 (P0.28) and LED2");
 
     /* Initialize PWM Device */
     pwm_dev = DEVICE_DT_GET(PWM_NODE);

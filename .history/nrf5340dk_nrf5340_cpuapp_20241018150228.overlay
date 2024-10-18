@@ -1,0 +1,17 @@
+/* Device Tree Overlay */
+
+/* Enable PWM0 and configure two outputs */
+&pwm0 {
+    status = "okay";
+    label = "PWM_0";
+    pinctrl-0 = <&pwm0_default>;
+    pinctrl-names = "default";
+};
+
+/* Configure PWM outputs for PWM0 */
+&pwm0_default: pwm0_default {
+    group1 {
+        psels = <NRF_PSEL(PWM_OUT0, 0, 28)>, // PWM_OUT0 on P0.28 (LED1)
+                <NRF_PSEL(PWM_OUT1, 0, 29)>; // PWM_OUT1 on P0.29 (LED2)
+    };
+};

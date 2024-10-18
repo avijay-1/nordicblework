@@ -1,0 +1,13 @@
+&pwm0 {
+    status = "okay";
+    label = "PWM_0";
+    pinctrl-0 = <&pwm0_default>;
+    pinctrl-names = "default";
+};
+
+&pwm0_default: pwm0_default {
+    group1 {
+        psels = <NRF_PSEL(PWM_OUT0, 0, 28)>, 
+        <NRF_PSEL(PWM_OUT1, 0, 29)>; // Configure PWM output on P0.28 and P0.29
+    };
+};
