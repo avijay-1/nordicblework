@@ -108,10 +108,15 @@ int main(void) {
                 uint32_t time_diff = current_time - last_peak_time;  // Time between two peaks
                 bpm = (60000 / time_diff);  // Calculate BPM
 
-                LOG_INF("Heartbeat detected! BPM: %d", bpm);
+                // Check if the BPM is 99, which indicates no valid heartbeat detected
+                if (bpm == 99) {
+                    LOG_INF("No heartbeat detected.");
+                } else {
+                    LOG_INF("Heartbeat detected! BPM: %d", bpm);
 
-                // Notify the BLE heart rate service with the new value
-                bt_hrs_notify(bpm);
+                    // Notify the BLE heart rate service with the new BPM value
+                    bt_hrs_notify(bpm);
+                }
 
                 last_peak_time = current_time;  // Update last peak time
             }
