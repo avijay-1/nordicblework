@@ -1,0 +1,20 @@
+/ {
+	zephyr,user {
+		io-channels = <&adc 0>;
+	};
+};
+
+&adc {
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+
+	channel@0 {
+		reg = <0>;
+		zephyr,gain = "ADC_GAIN_1_6";  /* Adjust this based on your sensor */
+		zephyr,reference = "ADC_REF_INTERNAL"; /* Internal reference */
+		zephyr,acquisition-time = <ADC_ACQ_TIME_DEFAULT>; /* Acquisition time */
+		zephyr,input-positive = <NRF_SAADC_AIN0>;  /* P0.04 (AIN0) is the input */
+		zephyr,resolution = <12>;  /* 12-bit resolution */
+	};
+};
